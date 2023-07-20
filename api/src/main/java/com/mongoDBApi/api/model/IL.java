@@ -1,17 +1,17 @@
 package com.mongoDBApi.api.model;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.data.annotation.Id;
 
-@Data//getter setter koyuyor
-@NoArgsConstructor// no argument constructor yapıyır
-@AllArgsConstructor// all argument constructor yapıyor
+@Entity
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class IL {
     @Id
     private String id;
     private String name;
-
-
 }

@@ -1,8 +1,7 @@
 package com.mongoDBApi.api.repository;
 
 import com.mongoDBApi.api.model.IL;
-import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface ILRepository extends MongoRepository<IL,String> {
-
+public interface ILRepository extends JpaRepository<IL, String> {
 }
