@@ -6,9 +6,6 @@ import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import static org.springframework.http.HttpStatus.OK;
@@ -43,7 +40,13 @@ public class ILController {
     {
         IL oldCity = getILById(id);
         oldCity.setName(newCity.getName());
-        return new ResponseEntity<>(OK);
+
+        IL updatedCity= ilService.updateIl(oldCity);
+        if (updatedCity != null) {
+            return new ResponseEntity<>(HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
     @DeleteMapping("/{id}")//bunu bodye değik httpe kısmına yazacağız
     public ResponseEntity<Void> deleteCity(@PathVariable String id)

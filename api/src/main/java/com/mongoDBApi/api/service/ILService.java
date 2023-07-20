@@ -26,4 +26,8 @@ public class ILService {
     public IL getIlById(String id) {
         return ilRepository.findById(id).orElseThrow(()->new RuntimeException("Il not found"));
     }
+
+    public IL updateIl(IL oldCity) {
+        return ilRepository.save(oldCity);
+    }
 }
